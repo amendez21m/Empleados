@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Lista Empleados{% endblock title %}
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Lista Empleados</h1>
+        <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" placeholder="Buscar Empleado" name="keyWord" id="keyWord">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="success button">Buscar</button>
+            </div>
+
+        </form>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100">ID</th>
+                        <th width="150">NOMBRES</th>
+                        <th width="150">APELLIDOS</th>
+                        <th width="150">DEPARTAMENTO</th>
+                        <th width="150">ACCION</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for worker in workers %}
+
+                    <tr>
+                        <td>{{worker.id}}</td>
+                        <td>{{worker.first_name}}</td>
+                        <td>{{worker.last_name}}</td>
+                        <td>{{worker.departamento}}</td>
+                        <td><a class="button warning" href="{% url 'app_persona:workerInfo' worker.id%}">ver</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock content %}

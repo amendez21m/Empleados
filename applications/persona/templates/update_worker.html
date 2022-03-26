@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Actualización Empleados{% endblock title %}
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Actualización Empleado</h1>
+    </div>
+    <div class="cell"> 
+        <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+            <div class="medium-6 cell">
+                <label>Nombre:
+                    {{ form.first_name }}
+                </label>
+              </div>
+              <div class="medium-6 cell">
+                <label>Apellidos:
+                    {{ form.last_name }}
+                </label>
+              </div>
+              <div class="medium-6 cell">
+                <label>Job:
+                    {{ form.job }}
+                </label>
+              </div>
+              <div class="medium-6 cell">
+                <label>Departamento:
+                    {{ form.departamento }}
+                </label>
+              </div>
+              <div class="medium-6 cell">
+                <label>Skills:
+                    {{ form.skills }}
+                </label>
+              </div>
+              <div class="cell">
+              <button type="submit" class="submit success button">Guardar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

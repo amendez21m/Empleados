@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Lista Empleados{% endblock title %}
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Lista Departamentos</h1>
+        <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" placeholder="Buscar Departamento" name="keyWord" id="keyWord">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="success button">Buscar</button>
+            </div>
+
+        </form>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100">NAME</th>
+                        <th width="150">INICIALES</th>
+                        <th width="150">ACTIVO</th>
+                        <th width="150">ACCION</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for departament in departaments %}
+
+                    <tr>
+                        <td>{{departament.name}}</td>
+                        <td>{{departament.iniciales}}</td>
+                        <td>{{departament.active}}</td>
+                        <td><a class="button warning" href="{% url 'app_persona:listByArea' departament.name %}">Ver Empleados</a></td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+<h1>SIGUE ASI ANTON, EL AÑO COMIENZA BIEN</h1>
+<form method="GET">{% csrf_token %}
+    <label for="key">Buscar empleado</label>
+    <input type="text" id="keyWord" name="keyWord">
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>LISTA EMPLEADOS</h3>
+<ul>
+
+    {% for e in skills %}
+    <li>{{e}}</li>
+    {% endfor %}
+</ul>

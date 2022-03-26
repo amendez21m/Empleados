@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Actualización Empleados{% endblock title %}
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Empleado</h1>
+<div class="card" style="width: 800px;">
+    <div class="card-divider">
+      Datos Empleado
+    </div>
+    <img src="static/img/img3.webp">
+
+    <div class="card-section">
+      <h5>Nombre : {{ worker.first_name }}</h5>
+      <h5>Apellidos : {{ worker.last_name }}</h5>
+      <h5>Trabajo : {{ worker.job }}</h5>
+      <h5>Departamento : {{ worker.departamento }}</h5>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock content %}
